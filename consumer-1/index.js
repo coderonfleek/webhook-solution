@@ -1,6 +1,6 @@
 let amqp = require("amqplib/callback_api");
 
-amqp.connect('amqp://localhost:5672', function (connectError, connection) {
+amqp.connect('amqp://message-queue:5672', function (connectError, connection) {
 
     if(connectError) throw connectError;
 

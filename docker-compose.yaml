@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  api-gateway:
+    build: gateway/.
+    ports:
+      - "1337:1337"
+    depends_on:
+      - message-queue
+  message-queue:
+    image: "rabbitmq:3.9-management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+      - "15692:15692"
+  worker-1:
+    build: consumer-1/.
+    depends_on:
+      - message-queue

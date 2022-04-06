@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/ingest", function (req, res) {
 
-    amqp.connect("amqp://localhost:5672", function (connectError, connection) {
+    amqp.connect("amqp://message-queue:5672", function (connectError, connection) {
         if(connectError){
             throw connectError;
         }
