@@ -13,7 +13,10 @@ services:
       - "5672:5672"
       - "15672:15672"
       - "15692:15692"
-  worker-1:
-    build: consumer-1/.
+  worker:
+    build: consumer/.
+    deploy:
+      mode: replicated
+      replicas: 3
     depends_on:
       - message-queue
