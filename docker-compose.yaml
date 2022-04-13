@@ -7,6 +7,8 @@ services:
       - "1337:1337"
     depends_on:
       - message-queue
+      - metrics-collector
+    restart: always
   message-queue:
     image: "rabbitmq:3.9-management"
     ports:
